@@ -217,7 +217,7 @@ sudo apt autoremove
 apt-get remove --purge <package_name>    >>   Remove and Reinstall Packages
 sudo apt-get check    >> Check for broken dependencies.
 sudo apt-mark unhold <package_name> - Unhold a package.
-
+apt list --upgradable
 
 
 
