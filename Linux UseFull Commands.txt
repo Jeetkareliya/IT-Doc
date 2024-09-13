@@ -204,4 +204,20 @@ https://chatgpt.com/share/1c3e721c-1357-40d8-84bd-4acc8bb7d7f6
 
 >> ssh -V
 >> dpkg -l | grep openssh-server
+====================================================================
+#GENERAL COMMANDS#
+dpkg-query -l
+dpkg-query -S <file_path>
+dpkg-query -L <package_name>
+sudo snap install teams-for-linux
+sudo dpkg -i teams*.deb
+sudo apt-get install -f    >>  - Fix broken dependencies
+sudo dpkg --configure -a  >>  Check for Broken Packages
+sudo apt autoremove
+apt-get remove --purge <package_name>    >>   Remove and Reinstall Packages
+sudo apt-get check    >> Check for broken dependencies.
+sudo apt-mark unhold <package_name> - Unhold a package.
+
+
+
 
