@@ -188,7 +188,7 @@ crontab -l			>> CHECK the status
 crontab -e			>> setting up crontab
 
 --------------------------------------------------------------------------------------------------------
-### Auto clean storage script for linux servers
+### Automated Server Cleaning for linux servers
 
 https://chatgpt.com/share/1c3e721c-1357-40d8-84bd-4acc8bb7d7f6
 
