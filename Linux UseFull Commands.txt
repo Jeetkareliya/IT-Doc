@@ -236,6 +236,26 @@ grep " install " /var/log/dpkg.log
 **** SOPHOS SSL VPN SETUP IN LINUX 
 Type the command sudo "openvpn --config" and drag the .ovpn configuration file to the terminal window
 
+*** CHECK OPEN PORTS IN UBUNTU **
+ss -tuln
+netstat -tuln
+nmap -sT -O localhost
+ss -tuln | grep 8080
+
+*** CHECK OPEN PORTS IN WINDOWS ***
+netstat -an | find "LISTEN"
+netstat -ab | more      >>>   To see processes associated with the ports, use:
+Get-NetTCPConnection -State Listen
+Get-NetTCPConnection -LocalPort 80
+netsh firewall show state
+
+
+
+
+
+
+
+
 
 
 
