@@ -249,6 +249,21 @@ Get-NetTCPConnection -State Listen
 Get-NetTCPConnection -LocalPort 80
 netsh firewall show state
 
+*** FIREWALL COMMAND ***
+sudo ufw status numbered
+sudo ufw delete 1
+ufw status
+
+*** IPTABLES ***
+sudo iptables -L --line-numbers                  >>>    
+sudo iptables -D INPUT <line-number>              >>>  delete a specific rule for a port
+sudo iptables -D INPUT -p tcp --dport 8080 -j ACCEPT
+sudo iptables-save > /etc/iptables/rules.v4
+
+
+
+
+
 
 
 
