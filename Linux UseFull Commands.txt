@@ -221,7 +221,7 @@ sudo apt-mark unhold <package_name> - Unhold a package.
 apt list --upgradable
 sudo find / -type d -name "nagioslogserver"        >>>    You can search for the nagioslogserver directory
 locate nagioslogserver                             >>>    
-
+apt --fix-broken install
 
 
 ** To list all installed packages **
