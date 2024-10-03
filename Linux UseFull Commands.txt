@@ -222,6 +222,12 @@ apt list --upgradable
 sudo find / -type d -name "nagioslogserver"        >>>    You can search for the nagioslogserver directory
 locate nagioslogserver                             >>>    
 apt --fix-broken install
+systemctl get-default     >>>>   Check the Current Runlevel
+sudo systemctl start gdm    >>>>    Start GUI Manually
+sudo systemctl start lightdm      >>>      Start GUI Manuall
+sudo systemctl set-default graphical.target   >>>>  Set GUI to Default Target
+apt install ubuntu-desktop        >>>      install ubuntu desktop by cmd
+
 
 
 ** To list all installed packages **
