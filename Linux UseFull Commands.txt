@@ -227,6 +227,9 @@ sudo systemctl start gdm    >>>>    Start GUI Manually
 sudo systemctl start lightdm      >>>      Start GUI Manuall
 sudo systemctl set-default graphical.target   >>>>  Set GUI to Default Target
 apt install ubuntu-desktop        >>>      install ubuntu desktop by cmd
+sudo nvidia-smi --gpu-reset      >>>    GPU, clearing its memory.
+
+
 
 
 
