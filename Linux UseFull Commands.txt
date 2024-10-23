@@ -272,6 +272,13 @@ sudo iptables-save > /etc/iptables/rules.v4
 LIMITED USER PERMISSION
 limiteduser ALL=(ALL) /usr/bin/apt-get, /usr/bin/apt-cache
 
+@@@@  SETUP OPENVPN IN UBUNTU
+
+sudo apt-get install openvpn
+sudo apt-get install network-manager-openvpn-gnome
+sudo openvpn --config *.openvpn
+
+
 
 
 
