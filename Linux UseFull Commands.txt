@@ -269,6 +269,9 @@ sudo iptables -D INPUT <line-number>              >>>  delete a specific rule fo
 sudo iptables -D INPUT -p tcp --dport 8080 -j ACCEPT
 sudo iptables-save > /etc/iptables/rules.v4
 
+LIMITED USER PERMISSION
+limiteduser ALL=(ALL) /usr/bin/apt-get, /usr/bin/apt-cache
+
 
 
 
