@@ -278,6 +278,14 @@ sudo apt-get install openvpn
 sudo apt-get install network-manager-openvpn-gnome
 sudo openvpn --config *.openvpn
 
+ZOMBIE PROCESS
+Identify the parent process ID (PPID) of the zombie process:    >>>  ps -l | grep Z
+Kill the parent process                                         >>>  sudo kill -HUP PPID
+parent process to clean up its zombie children                  >>>  sudo kill -9 PPID
+List zombie processes and their parent process ID              >>>    ps -eo pid,ppid,stat,cmd | grep ' Z '
+TO find Processs         >>>>    ps -aux | grep "pid"
+
+
 
 
 
