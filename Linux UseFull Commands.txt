@@ -1,6 +1,17 @@
+###   ZOMBIE PROCESS
+Identify the parent process ID (PPID) of the zombie process:    >>>  ps -l | grep Z
+Kill the parent process                                         >>>  sudo kill -HUP PPID
+parent process to clean up its zombie children                  >>>  sudo kill -9 PPID
+List zombie processes and their parent process ID              >>>    ps -eo pid,ppid,stat,cmd | grep ' Z '
+TO find Processs         >>>>    ps -aux | grep "pid"
+------------------------------------------------------------------------------
+###  FIRMWARE VERSION UPDATE CHECK 
+fwupdmgr get-upgrades
+
+
 systemctl list-units --type=service --state=running 			>>>	    check running service in linux
 --------------------------------------------------------------------------------------------------------
-** NGINX 
+### NGINX 
 ps -ax | grep nginx
 kill -s QUIT 1628
 nginx -s reload
@@ -19,7 +30,7 @@ systemctl list-units -a --state=inactive
 sudo lshw -numeric -C display	
 --------------------------------------------------------------------------------------------------------------										
 
-** NVIDIA GRAPHICS CHECK
+### NVIDIA GRAPHICS CHECK
 
 nvidia-smi													>>>		CHECK NVIDIA DRIVER VERSION
 lspci | grep VGA	
@@ -36,7 +47,7 @@ dmidecode --type connector										>>>		CHECK AVAILABLE HDD SLOTTS OR CONNECTOR
 smartctl --scan	
 tail -f syslog.1 | grep -i " Feb 7"								>>>		LOG MONITORING WITH TAIL COMMAND
 -----------------------------------------------------------------------------------------------------------------------
-** MONITORING SERVER TEMPERATURE 	
+### MONITORING SERVER TEMPERATURE 	
 
 apt install smarttools
 smartctl -a /dev/sda
@@ -45,7 +56,7 @@ sudo sensors-detect
 sensors
 inxi -xD
 --------------------------------------------------------------------------------------------------------------------------
-** SERVER PROCESS MONITORING COMMAND	
+###   SERVER PROCESS MONITORING COMMAND	
 glances
 top
 vnstat
@@ -58,13 +69,13 @@ HTOP
 IFTOP
 LSOF
 --------------------------------------------------------------------------------------------------------------------------
-** HOW TO SET SPECIAL PERMISSION ( Numerically setuid=4 ; setgid=2 ; sticky=1 )	
+###   HOW TO SET SPECIAL PERMISSION ( Numerically setuid=4 ; setgid=2 ; sticky=1 )	
 chmod u+s file
 chmod g+s directory
 chmod o+s directory
 chmod 2770 directory
 -------------------------------------------------------------------------------------------------------------------------------
-** CHEK OPEN PORTS IN UBUNTU	
+###   CHEK OPEN PORTS IN UBUNTU	
 nmap localhost
 nmap -p 80 localhost
 sudo lsof -nP | grep LISTEN
@@ -98,7 +109,7 @@ lsof -i -P -n
 more /etc/services
 ------------------------------------------------------------------------------------------------------------
 
-** MANAGE SWAP MEMORY IN LINUX	
+###   MANAGE SWAP MEMORY IN LINUX	
 swapoff -a									>>		to clear swap memory
 swapon -a	
 free -m										>>		to check swap memory
@@ -107,7 +118,7 @@ sudo sysctl vm.swappiness=x					>>		to set swapiness value in linux
 sudo sysctl vm.swappiness=1	
 nvcc --version 								>>		You can verify that you have a CUDA-capable GPU
 ------------------------------------------------------------------------------------------------------------
-** EXTENDING SWAP LOGICAL VOLUME	
+###  EXTENDING SWAP LOGICAL VOLUME	
 swapoff -v /dev/VolGroup00/LogVol01			>>		Disable swapping for the associated logical volume:
 lvresize /dev/VolGroup00/LogVol01 -L +2G	>>		Resize the LVM2 logical volume by 2 GB:
 mkswap /dev/VolGroup00/LogVol01				>>		Format the new swap space:
@@ -115,7 +126,7 @@ swapon -v /dev/VolGroup00/LogVol01			>>		Enable the extended logical volume:
 cat /proc/swaps								>>		To test if the swap logical volume was successfully extended and activated, inspect active swap space:
 free -h	
 ------------------------------------------------------------------------------------------------------------
-** CREATING LOGICAL VOLUME FOR SWAP	
+###  CREATING LOGICAL VOLUME FOR SWAP	
 mkswap /dev/VolGroup00/LogVol02									>>		Format the new swap space
 /dev/VolGroup00/LogVol02   swap     swap    defaults     0 0	>>		Add the following entry to the /etc/fstab file:
 systemctl daemon-reload											>>		Regenerate mount units so that your system registers the new configuration:
@@ -123,12 +134,12 @@ swapon -v /dev/VolGroup00/LogVol02								>>		Activate swap on the logical volum
 cat /proc/swaps													>>		To test if the swap logical volume was successfully created and activated, inspect active swap space:
 free -h	
 -----------------------------------------------------------------------------------------------------------
-*** username ALL=(ALL) NOPASSWD: /path/to/command				>>		https://chatgpt.com/share/5cfc08fe-b413-48b3-b349-12ec7804f4c8
+###  username ALL=(ALL) NOPASSWD: /path/to/command				>>		https://chatgpt.com/share/5cfc08fe-b413-48b3-b349-12ec7804f4c8
 john ALL=(ALL) NOPASSWD: /usr/sbin/systemctl restart apache2	>>		https://chatgpt.com/share/59b74e64-b852-4844-8aae-7bdcfbeb5ddb
 john ALL=(www-data) NOPASSWD: /usr/sbin/systemctl restart apache2	>>	To allow john to run systemctl restart apache2 as the user www-data
 
 -----------------------------------------------------------------------------------------------------------
-*****  SET SERVER TIME ZONE
+###  SET SERVER TIME ZONE
 timedatectl set-ntp yes
 timedatectl set-ntp no
 timedatectl set-time 2019-04-10
@@ -150,30 +161,30 @@ sudo dpkg -l | grep ^..R									>>			Check if DPKG marked some packages as need
 sudo dpkg --purge --force-all [package-name]				>>			If the command above returns a list of one or more packages, try removing the packages by typing:
 sudo apt clean												>>			Claan packages
 -------------------------------------------------------------------------------------------------------
-****Resolve DPKG Lock Issue	
+###  Resolve DPKG Lock Issue	
 sudo rm /var/lib/apt/lists/lock	 							>>			To fix the problem, remove the lock file manually:
 sudo rm /var/cache/apt/archives/lock	 					>>			remove the lock in cache:
 
 --------------------------------------------------------------------------------------------------------------
-*** Linux Log command
+###  Linux Log command
 journalctl -S 2024-08-26 -U 2024-08-29
 ---------------------------------------------------------------------------------------------------------------------
-*** Solution: Fix Permissions for the SSH Config File
+###   Solution: Fix Permissions for the SSH Config File
 https://chatgpt.com/share/b6aaee3a-de50-42d1-9bdb-69d4b0854ec1
 ---------------------------------------------------------------------------------------------------------------------
-*** OpenSSH Client is Installed
+###  OpenSSH Client is Installed
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Client*'
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 ---------------------------------------------------------------------------------------------------------------------
-*** GENERATE SSH KEY
+###  GENERATE SSH KEY
 ssh-keygen -t rsa -b 4096 or 2048 -C "username"
 ssh-keygen -t ed25519 -C "username"
 ssh-keygen -t ed25519 -c "jay"	GENERATE ED25519 SSH KEY 
 ssh-copy-id -p 1124 -i /home/prakashsingh/.ssh/dev_ed25519.pub prakash_singh@14.194.133.90
 
 ---------------------------------------------------------------------------------------------------------------------
-** install falcon sensor in linux
+###  install falcon sensor in linux
 sudo apt update
 sudo apt upgrade
 sudo dpkg -i falcon-sensor_<version>.deb
@@ -183,7 +194,7 @@ sudo systemctl enable falcon-sensor
 sudo /opt/CrowdStrike/falconctl -g --cid
 
 ---------------------------------------------------------------------------------------------------------------------------
-** Crontab 
+###  Crontab 
 crontab -l			>> CHECK the status 
 crontab -e			>> setting up crontab
 
@@ -278,12 +289,6 @@ sudo apt-get install openvpn
 sudo apt-get install network-manager-openvpn-gnome
 sudo openvpn --config *.openvpn
 
-ZOMBIE PROCESS
-Identify the parent process ID (PPID) of the zombie process:    >>>  ps -l | grep Z
-Kill the parent process                                         >>>  sudo kill -HUP PPID
-parent process to clean up its zombie children                  >>>  sudo kill -9 PPID
-List zombie processes and their parent process ID              >>>    ps -eo pid,ppid,stat,cmd | grep ' Z '
-TO find Processs         >>>>    ps -aux | grep "pid"
 
 
 
