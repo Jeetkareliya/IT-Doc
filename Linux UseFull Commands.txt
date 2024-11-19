@@ -309,6 +309,11 @@ S: state of the process
 TIME+: Total CPU time consumed by the process.
 Command: Command used to activate the process.
 
+Viewing Dependencies  >>>>>    systemctl list-dependencies cockpit.service
+
+
+
+
 
 
 
