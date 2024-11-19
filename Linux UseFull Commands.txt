@@ -309,7 +309,12 @@ S: state of the process
 TIME+: Total CPU time consumed by the process.
 Command: Command used to activate the process.
 
+**** SERVICE MANAGEMENT 
+
 Viewing Dependencies  >>>>>    systemctl list-dependencies cockpit.service
+Verify Dependencies    >>>>    systemctl list-dependencies --reverse systemd-networkd-wait-online.service
+Review Logs          >>>>    journalctl -u systemd-networkd-wait-online.service
+Modify the Service Timeout (Optional)    
 
 
 
