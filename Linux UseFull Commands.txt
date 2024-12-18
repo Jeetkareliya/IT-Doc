@@ -316,6 +316,13 @@ Verify Dependencies    >>>>    systemctl list-dependencies --reverse systemd-net
 Review Logs          >>>>    journalctl -u systemd-networkd-wait-online.service
 Modify the Service Timeout (Optional)    
 
+                                            SERVER SECURITY	
+Fail2ban for Added Security	
+sudo apt install fail2ban -y	
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local	
+sudo service fail2ban restart	
+sudo fail2ban-client status ssh	
+cat /var/log/fail2ban.log	
 
 
 
